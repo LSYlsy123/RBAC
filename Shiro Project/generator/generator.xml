@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!--数据库包位置-->
+    <classPathEntry location="/Users/lishengyu/Desktop/Shiro Project/generator/mysql-connector-java-5.1.46.jar" />
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--配置数据库连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/Apache_Shiro"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--指定javabean生成的位置-->
+        <javaModelGenerator targetPackage="com.mmall.model" targetProject="/Users/lishengyu/Desktop/Shiro Project/src">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 指定sql映射文件生成的位置-->
+        <sqlMapGenerator targetPackage="mappers"  targetProject="/Users/lishengyu/Desktop/Shiro Project/src">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--指定dao生成的位置，mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mmall.dao"  targetProject="/Users/lishengyu/Desktop/Shiro Project/src">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--table指定每个表的生成策略-->
+        <table tableName="sys_user" domainObjectName="SysUser" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_dept" domainObjectName="SysDept" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_acl" domainObjectName="SysAcl" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_acl_module" domainObjectName="SysAclModule" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_role" domainObjectName="SysRole" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_role_acl" domainObjectName="SysRoleAcl" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_role_user" domainObjectName="SysRoleUser" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+        <table tableName="sys_log" domainObjectName="SysLog" enableCountByExample="false" enableSelectByExample="false" selectByExampleQueryId="flase"/>
+    </context>
+</generatorConfiguration>
